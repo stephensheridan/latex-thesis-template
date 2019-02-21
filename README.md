@@ -1,2 +1,2 @@
-# latex-thesis-template
-Proposed thesis template
+# phd-thesis
+PhD Latex Source

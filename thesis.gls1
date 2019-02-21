@@ -1,0 +1,8 @@
+\glossarysection[\glossarytoctitle]{\glossarytitle}\glossarypreamble
+\begin{theglossary}\glossaryheader
+\glsgroupheading{glssymbols}\relax \glsresetentrylist %
+\glossentry{dns}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{0}}}%
+\glossentry{eda}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{0}}}%
+\end{theglossary}\glossarypostamble

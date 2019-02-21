@@ -1,0 +1,202 @@
+%input macros (i.e. write your own macros file called MacroFile1.tex)
+%\include{Macros/MacroFile1}
+
+ \documentclass[oneside,11pt, hidelinks]{Classes/CUEDthesisPSnPDF}
+ %If changing to onesided, uncomment line 154 (oddmargin size) i CUEDthesisPSnPDF
+
+%Next 12 lines add the words 'Table' and 'Filgure' to the list of tables and figures GG
+\usepackage{tocloft}
+\newlength{\mylen}
+%%code for Figures
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{:}
+\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\mylen}
+%%code for Tables
+\renewcommand{\cfttabpresnum}{\tablename\enspace}
+\renewcommand{\cfttabaftersnum}{:}
+\settowidth{\mylen}{\cfttabpresnum\cfttabaftersnum}
+\addtolength{\cfttabnumwidth}{\mylen}
+%End of List of tables and figures formatting
+
+% Used in Algorithm listings
+\newcommand{\var}{\texttt}
+
+%packages
+\usepackage{framed}
+\usepackage{mdframed}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{makeidx}
+%\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{rotating}
+\usepackage{latexsym}
+%\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{epstopdf}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{color}
+\usepackage{longtable} 
+\usepackage[svgnames]{xcolor}
+%\usepackage{arydshln}
+\usepackage{listings}
+%\usepackage{pdflscape}
+\usepackage[title,toc]{appendix}
+\usepackage[toc,acronym]{glossaries}
+\usepackage[chapter]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{placeins}
+
+% Create Glossaries
+\newglossary{acron}{gls1}{glo1}{List of Acronyms}
+\newglossary{abbrev}{gls2}{glo2}{List of Abbreviations}
+\newglossary{symbol}{gls3}{glo3}{List of Symbols}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    frame=single
+}
+
+\lstset{style=mystyle}
+
+
+%Force a line break in a URL
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+
+%Define parameters for Key findings boxes
+\definecolor{myframecolour}{HTML}{E0E0E0}
+\setlength{\FrameSep}{2pt}
+
+
+\makeindex
+\makeglossaries
+
+\loadglsentries{phd_acronyms}
+\loadglsentries{phd_abbreviations}
+\loadglsentries{phd_symbols}
+
+
+\ifpdf
+    \pdfinfo { /Title  (XXX M.Sc./Ph.D. Author Name XXX)
+               /Creator (TeX)
+               /Producer (pdfTeX)
+               /Author (XXX Author name and email addressXXX)
+               /CreationDate (D:20180601000000)  %format D:YYYYMMDDhhmmss
+               /ModDate (D:20180601000000)
+               /Subject (subject terms)
+               /Keywords (XXX M.Sc./Ph.D., Thesis XXX)}
+    \pdfcatalog { /PageMode (/UseOutlines)
+                  /OpenAction (fitbh)  }
+\fi
+
+\title{
+	\includegraphics[width=60mm]{./logo/TUD_RGB.png} \\ 
+	Project Title:}
+\subtitle {\emph{Subtitle if required}}
+
+
+ \author{\href{mailto:xxxxxxx.xxxxxxx@itb.ie}{XXX Authors Full Name XXX}}
+\collegeordept{Department of Informatics, \\ School of Informatics and Engineering,\\Technological University Dublin - Blanchardstown Campus}
+
+\renewcommand{\submittedtext}{A thesis submitted to Technological University Dublin - Blanchardstown Campus in fulfilment of the requirements for the degree of}
+\degree{XXX Correct programme title here. XXX}
+
+
+\supervisorone{Principal supervisor:\\ XXX Supervisors name here. XXX}      %Change to one supervisor if needed
+\university{\href{http://www.itb.ie}{Technological University of Dublin - Blanchardstown Campus, Dublin, Ireland}}
+
+\degreedate{XXX Submission date here. XXX}
+
+% turn of those nasty overfull and underfull hboxes
+\hbadness=10000
+\hfuzz=50pt
+
+% Comment out the next line to get single spacing
+%\onehalfspacing
+\linespread{1.25}
+
+\begin{document}
+Remove this page
+
+% This seems to add a blank page to the beginning of the document
+% This can be removed easily when printed.
+\glsaddall
+
+\maketitle
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\frontmatter % book mode only
+\pagenumbering{roman}
+\include{Dedication/dedication}
+\include{Acknowledgement/acknowledgement}
+\include{Abstract/abstract}
+
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+\newpage
+
+%\printglossary[title={List of Acronyms, abbreviations and symbols}, type=acron, nonumberlist]
+\printglossary[title={List of Acronyms}, type=acron, nonumberlist]
+\printglossary[title={List of Abbreviations}, type=abbrev, nonumberlist]
+\printglossary[title={List of Symbols}, type=symbol, nonumberlist]
+
+\mainmatter % book mode only
+\include{Introduction/introduction}
+\include{Terminology/terminology}
+\include{LitReview/litreview}
+\include{Methodology/methodology}
+\include{Results/results}
+\include{Conclusions/conclusions}
+
+%\backmatter % book mode only, turns off chapter numbering
+
+\bibliographystyle{chicago}
+\renewcommand{\bibname}{References} % changes default name Bibliography to References
+\renewcommand{\bibfont}{\small}
+\begin{singlespace}
+\setlength{\itemsep}{0pt}
+\bibliography{References/Bibliography}
+\end{singlespace}
+
+\appendix
+
+\include{Appendix1/appendix1}
+\include{Appendix2/appendix2}
+\include{Appendix3/appendix3}
+
+\end{document}

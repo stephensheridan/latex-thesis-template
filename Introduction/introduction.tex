@@ -1,0 +1,227 @@
+%%% Thesis Introduction --------------------------------------------------
+\chapter{Introduction}\label{chapter:introduction}
+
+\section{Using citations}\label{sec:citations}
+This section will outline the use of the \textbf{cite} and \textbf{citep} commands. Before can use the citation commands you will need to compile a bibliography file using one of a number of tools such as RefWorks\footnote{\url{https://www.refworks.com}}, PaperPile\footnote{\url{https://www.paperpile.com}} or Mendeley\footnote{\url{https://www.mendeley.com}}. Once you have compiled your bibliography file and exported it as a \textbf{.bib} file, you should include this file in your \LaTeX{} document by including the following line in your \textbf{thesis.tex} file. \\
+
+\begin{lstlisting}[caption={Including your bibliography file}, numbers=none, label={lst:bibliography}]
+\bibliography{References/Bibliography}
+\end{lstlisting}
+
+Using the code in Listing \ref{lst:bibliography} will ensure that \LaTeX{} will look for a file called \textbf{Bibliography.bib} in a sub folder called \textbf{References}. You will find this command included towards the end of the \textbf{thesis.tex} source file. \\
+
+\textbf{Note:} the footnote superscripts for RefWorks, PaperPile and Mendelay were created with the following \LaTeX{} code:
+
+\begin{lstlisting}[caption={Using the \textbf{footnote} command}, numbers=none, label={lst:footnote}]
+RefWorks\footnote{\url{https://www.refworks.com}},
+PaperPile\footnote{\url{https://www.paperpile.com}} or
+Mendeley\footnote{\url{https://www.mendeley.com}}
+\end{lstlisting}
+
+\subsection{Cite command}\label{sec:cite-command}
+The \textbf{cite} command inserts the author(s) name and parenthesis's the year of publication. The \textbf{cite} command takes the key-value of .bib file entry for the particular citation that you want to include. The following \LaTeX{} code demonstrates the use of the \textbf{cite} command. \\
+
+\begin{lstlisting}[caption={Using the \textbf{cite} command}, numbers=none, label={lst:cite}]
+\cite{Lampson1973-kx} can be attributed with introducing the term...
+\end{lstlisting}
+
+The \LaTeX{} code in Listing \ref{lst:cite} produces the following output:
+
+\begin{mdframed}
+\cite{Lampson1973-kx} can be attributed with introducing the term "covert channel" in his work entitled "Note on the confinement problem".
+\end{mdframed}
+
+\subsection{Citep command}\label{sec:citep-command}
+The \textbf{citep} command parenthesis's both the author(s) name and year of publication. The \textbf{citep} command takes the key-value of .bib file entry for the particular citation that you want to include. The following \LaTeX{} code demonstrates the usage of the \textbf{citep} command. \\
+
+\begin{lstlisting}[caption={Using the \textbf{citep} command}, numbers=none, label={lst:citep}]
+The term covert channel \citep{Lampson1973-kx} is used to describe...
+\end{lstlisting}
+
+The \LaTeX{} code ion Listing \ref{lst:citep} produces the following output:
+
+\begin{mdframed}
+The term covert channel \citep{Lampson1973-kx} is used to describe the embedding of a hidden message in a carrier channel that will not raise suspicion.
+\end{mdframed}
+
+
+\subsection{Citing multiple authors}\label{sec:cite-multiple}
+If you need to include multiple publications in the same citation, you can specify multiple citation keys in a commented list using the \textbf{cite} or \textbf{citep} command. The following \LaTeX{} snippet shows how to do this.
+
+\begin{lstlisting}[caption={Citing multiple authors}, numbers=none, label={lst:cite-multiple}]
+...DNS can be used as a covert channel \citep{Born2010-do,Aiello2012-sg}.
+\end{lstlisting}
+
+Using the \LaTeX{} code in Listing \ref{lst:cite-multiple} will produce the following output:
+
+\begin{mdframed}
+It is widely accepted that the DNS can be used as a covert channel \citep{Born2010-do,Aiello2012-sg}.
+\end{mdframed}
+
+\section{Including graphical figures}\label{sec:first-section}
+We can include graphics using the following \LaTeX code. Note the size of the image can be varied by changing $0.5$ proportion in the width clause.
+
+\begin{lstlisting}[caption={Including a graphical figure}, numbers=none, label={lst:figure}]
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.5\textwidth]{./images/DGR_4QDUIAAEnsE.jpg}
+\caption{Using 0.6 divided by textwidth.}
+\label{fig:writing-your-thesis}
+\end{figure}
+\end{lstlisting}
+
+Using the \LaTeX{} code in Listing \ref{lst:figure} will produce the following output:
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./Figures/DGR_4QDUIAAEnsE.jpg}
+	\caption{Using 0.5 divided by textwidth.}
+	\label{fig:writing-your-thesis}
+\end{figure}
+
+Changing the $0.5$ proportion in the \LaTeX{} code above to $0.3$ results in the following:
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.3\textwidth]{./Figures/DGR_4QDUIAAEnsE.jpg}
+	\caption{Using 0.3 divided by textwidth.}
+	\label{fig:writing-your-thesis-smaller}
+\end{figure}
+
+\pagebreak
+
+\section{Using tables}\label{sec:second-section}
+We can include tabular data using the following \LaTeX{} code:
+\begin{lstlisting}[caption={Formatting tabular data}, numbers=none, label={lst:table}]
+\begin{table}[!ht]
+\begin{center}
+\caption{Write the caption for your table here.}
+\label{table:first-table}
+\begin{tabular}{p{2cm} p{2cm} p{2cm} p{2cm} p{2cm}}
+\hline
+\\[-1em]
+& A& B& C& D\\
+\hline
+Mean&   22&      22&     23&    28\\
+Min&      2&        2&       4&      2\\
+Max&     250&    248&    251&  251\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{lstlisting}
+
+The \LaTeX{} code in Listing \ref{lst:table}  produces the following output:
+
+\begin{table}[!ht]
+	\begin{center}
+		\caption{Write the caption for your table here.}
+		\label{table:first-table}
+		\begin{tabular}{p{2cm} p{2cm} p{2cm} p{2cm} p{2cm}}
+			\hline
+			\\[-1em]
+			& A& B& C& D\\
+			\hline
+			Mean&   22&      22&     23&    28\\
+			Min&      2&        2&       4&      2\\
+			Max&     250&    248&    251&  251\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\textbf{NOTE:} Presenting tabular data in \LaTeX{} is a bit of an art form. It can be very frustrating at times but stick with it as the end result always looks better for it.
+
+\pagebreak
+
+\section{Using lists}\label{sec:using-lists}
+This section will outline how to use enumerations with various different styles.
+
+\subsection{List of objectives}\label{sec:objective-list}
+We can use enumerated lists for our objectives. Note the use of labels so we can refer to specific objectives from anywhere in the document.
+
+\begin{lstlisting}[caption={Objectives enumeration}, numbers=none, label={lst:objectives}]
+\begin{enumerate}[label=\emph{Ob\arabic{enumi}}.,ref=\emph{Ob\arabic{enumi}}]
+\item Objective. \label{Ob:1}
+\item Objective. \label{Ob:2}
+\item Objective. \label{Ob:3} 
+\end{enumerate}
+\end{lstlisting}
+
+The \LaTeX code in Listing \ref{lst:objectives} produces the following output:
+
+\begin{mdframed}
+\begin{enumerate}[label=\emph{Ob\arabic{enumi}}.,ref=\emph{Ob\arabic{enumi}}]
+	\item Objective. \label{Ob:1}
+	\item Objective. \label{Ob:2}
+	\item Objective. \label{Ob:3} 
+\end{enumerate}
+\end{mdframed}
+
+\subsection{List of research questions}\label{sec:second-subsection}
+We can use enumerated lists for our research questions. \textbf{Note}: the use of labels so we can refer to specific research questions from anywhere in the document.
+
+\begin{lstlisting}[caption={Question enumeration}, numbers=none, label={lst:questions}]
+\begin{enumerate}[label=\emph{Q\arabic{enumi}}.,ref=\emph{Q\arabic{enumi}}]
+\item Question?\label{Q:1} \\
+\textit{This thesis will also address the following secondary research questions:}
+\item Question?  \label{Q:2}
+\item Question?  \label{Q:3}
+\end{enumerate}
+\end{lstlisting}
+
+The \LaTeX code in Listing \ref{lst:questions} produces the following output:
+
+\begin{mdframed}
+\begin{enumerate}[label=\emph{Q\arabic{enumi}}.,ref=\emph{Q\arabic{enumi}}]
+	\item Question?\label{Q:1} \\
+	\textit{This thesis will also address the following secondary research questions:}
+	\item Question?  \label{Q:2}
+	\item Question?  \label{Q:3}
+\end{enumerate}
+\end{mdframed}
+
+\subsection{Using a numbered list}\label{sec:numbered-list}
+We can use a straight forward numbered list as follows:
+
+\begin{lstlisting}[caption={Question enumeration}, numbers=none, label={lst:numbered}]
+\begin{enumerate}
+\item First Item
+\item Second Item
+\item Third Item
+\end{enumerate}
+\end{lstlisting}
+
+The \LaTeX{} code in Listing \ref{lst:numbered} produces the following output:
+
+\begin{mdframed}
+\begin{enumerate}
+\item First Item
+\item Second Item
+\item Third Item
+\end{enumerate}
+\end{mdframed}
+
+\subsection{Using a bullet list}\label{sec:bullet-list}
+We can use a straight forward bullet list as follows:
+
+\begin{lstlisting}[caption={Itemised listing}, numbers=none, label={lst:bullet}]
+\begin{itemize}
+\item First Item
+\item Second Item
+\item Third Item
+\end{itemize}
+\end{lstlisting}
+
+\pagebreak
+
+The \LaTeX{} code in Listing \ref{lst:bullet} produces the following output: \\
+
+\begin{mdframed}
+\begin{itemize}
+	\item First Item
+	\item Second Item
+	\item Third Item
+\end{itemize}
+\end{mdframed}
+

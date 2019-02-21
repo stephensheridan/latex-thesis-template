@@ -1,0 +1,58 @@
+%%% Thesis Introduction --------------------------------------------------
+\chapter{Introduction}
+\ifpdf
+    \graphicspath{{Introduction/IntroductionFigs/PNG/}{Introduction/IntroductionFigs/PDF/}{Introduction/IntroductionFigs/}}
+\else
+    \graphicspath{{Introduction/IntroductionFigs/EPS/}{Introduction/IntroductionFigs/}}
+\fi
+
+\section{First section}
+
+Citations can be in tow formats: \citep{Mislevy2012} or \citep{Cassidy2011}. Pages numbers are included as follows: \citep[p. 214]{Pascarella2005}. 
+
+\section{Second section}
+The following list includes labels allowing specific items to be refereces else where. The `begin' statement defines format for both how items are numbered, and how their reference will appear. This are done as a list of objectives, so the numbering is precedded by `Ob':
+\begin{enumerate}[label=\emph{Ob\arabic{enumi}}.,ref=\emph{Ob\arabic{enumi}}]
+%ob1 factors
+\item Objective 1 is  \label{Item1}
+%ob2 edm models
+\item Objective 2 is  \label{Item2}
+\end{enumerate}
+
+
+%The data used covered a diverse student population enrolled on a range of academic courses. Both regression models predicting Grade Point Average (GPA) and classification models predicting students at risk of failing in first year of study were evaluated.
+
+
+
+
+%which have good accuracy in identifying students who will pass or fail, are based on data that comes available after the student has engaged in course work.
+%, by which time it can be too late to intervene. Many models also tend to be specific to a particular academic discipline. 
+
+% Arnold2012 talks about advantage of early intervention, and Lauria2013.
+
+
+
+
+\section{Next section}
+Regular list
+
+\begin{enumerate}
+\item List item 1
+\item List item 2
+\end{enumerate}
+
+
+
+\subsection{and a subsection} 
+\begin{minipage}{0.85\textwidth}
+\textbf{creating a mini page:} A minin page within the main page
+\end{minipage}
+
+
+%%% ----------------------------------------------------------------------
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

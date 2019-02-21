@@ -1,0 +1,245 @@
+%input macros (i.e. write your own macros file called MacroFile1.tex)
+%\include{Macros/MacroFile1}
+
+ \documentclass[oneside,11pt, hidelinks]{Classes/CUEDthesisPSnPDF}
+ %If changing to onesided, uncomment line 154 (oddmargin size) i CUEDthesisPSnPDF
+
+%Next 12 lines add the words 'Table' and 'Filgure' to the list of tables and figures GG
+ \usepackage{tocloft}
+\newlength{\mylen}
+%code for Figures
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{:}
+\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\mylen}
+%code for Tables
+\renewcommand{\cfttabpresnum}{\tablename\enspace}
+\renewcommand{\cfttabaftersnum}{:}
+\settowidth{\mylen}{\cfttabpresnum\cfttabaftersnum}
+\addtolength{\cfttabnumwidth}{\mylen}
+%End of List of tables and figures formatting
+
+
+%packages added by GG
+\usepackage{framed}
+\usepackage{mdframed}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{makeidx}
+ \usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{rotating}
+\usepackage{latexsym}
+ \usepackage{lscape}
+ \usepackage{epstopdf}
+ \usepackage{enumitem}
+ \usepackage{amsmath}
+  \usepackage{array}
+  \usepackage{color}
+\usepackage[svgnames]{xcolor}
+\usepackage{arydshln}
+  \usepackage{pdflscape}
+  %\usepackage{siunitx}
+  %\usepackage[acronym,toc]{glossaries}
+  \usepackage[toc,acronym]{glossaries}
+  %\makeglossary
+
+% Create Glossaries
+\newglossary{acron}{gls1}{glo1}{List of Acronyms}
+\newglossary{abbrev}{gls2}{glo2}{List of Abbreviations}
+\newglossary{symbol}{gls3}{glo3}{List of Symbols}
+  
+%\setlength{\glsdescwidth}{15cm}
+
+%\newglossary[slg]{symbol}{syi}{syg}{List of Symbols} % create add. symbolslist
+%\newglossary[syg]{symbol}{sys}{syo}{List of Symbols}
+% abbreviations:
+%\newglossary{abbrev}{abs}{abo}{List of Abbreviations}
+%\glsaddkey{unit}{\glsentrytext{\glslabel}}{\glsentryunit}{\GLsentryunit}{\glsunit}{\Glsunit}{\GLSunit}
+
+
+  \definecolor{myframecolour}{HTML}{E0E0E0}
+
+  %Force a line break in a URL
+  \expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+  \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+  \do\Y\do\Z}
+
+
+  %Define parameters for Key findings boxes GG
+  \setlength{\FrameSep}{2pt}
+
+
+\makeindex
+
+\makeglossaries
+\loadglsentries{phd_acronyms}
+\loadglsentries{phd_abbreviations}
+\loadglsentries{phd_symbols}
+%\loadglsentries[symbols]{database2}
+
+
+
+\ifpdf
+    \pdfinfo { /Title  (PhD Stephen Sheridan)
+               /Creator (TeX)
+               /Producer (pdfTeX)
+               /Author (Stephen Sheridan stephen.sheridan@itb.ie)
+               /CreationDate (D:20150601000000)  %format D:YYYYMMDDhhmmss
+               /ModDate (D:20150601000000)
+               /Subject (subject terms)
+               /Keywords (PhD, Thesis)}
+    \pdfcatalog { /PageMode (/UseOutlines)
+                  /OpenAction (fitbh)  }
+\fi
+
+\title{Detection of DNS-based covert channels using an Information Potential Approach}
+\subtitle {\emph{A study of DNS-based covert channel communication for data exfiltration and command and control with a focus on filtering potentially damaging communications from benign DNS traffic.}}
+
+\ifpdf
+  \author{\href{mailto:stephen.sheridan@itb.ie}{Stephen Sheridan}}
+    \collegeordept{Department of Informatics, \\ School of Informatics and Engineering,\\Institute of Technology Blanchardstown}
+
+% ITB logo
+%  \crest{\includegraphics[width=60mm]{itblogo}}
+\else
+  \author{Stephen Sheridan}
+    \collegeordept{{Supervised by:}}
+% insert below the file name that contains the crest in-place of 'UnivShield'
+%  \crest{\includegraphics[bb = 0 0 292 336, width=30mm]{itblogo}}
+\fi
+%
+% insert below the file name that contains the crest in-place of 'UnivShield'
+% \crest{\IncludeGraphicsW{UnivShield}{40mm}{14 14 73 81}}
+%
+
+\renewcommand{\submittedtext}{A thesis submitted to Institute of Technology Blanchardstown in fulfilment of the requirements for the degree of}
+\degree{Doctor of Philosophy}
+
+
+\ifpdf
+  \supervisorone{Principal supervisors:\\ Dr. Anthony Keane \& Dr. Brian Nolan}      %Change to one supervisor if needed
+  \university{\href{http://www.itb.ie}{Institute of Technology Blanchardstown, Dublin, Ireland}}
+% ITB logo
+%  \crest{\includegraphics[width=60mm]{itblogo}}
+\else
+  \collegeordept{Department of Informatics}
+  \university{Institute of Technology Blanchardstown, Dublin, Ireland}
+% insert below the file name that contains the crest in-place of 'UnivShield'
+%  \crest{\includegraphics[bb = 0 0 292 336, width=30mm]{itblogo}}
+\fi
+
+
+\degreedate{July 16th, 2017}
+
+% turn of those nasty overfull and underfull hboxes
+\hbadness=10000
+\hfuzz=50pt
+
+% Put all the style files you want in the directory StyleFiles and usepackage like this:
+\usepackage{StyleFiles/watermark}
+
+% Comment out the next line to get single spacing
+\onehalfspacing
+
+\begin{document}
+Remove this page
+
+% This seems to add a blank page to the beginning of the document
+\glsaddall
+
+%\language{english}
+% A page with the abstract on including title and author etc may be
+% required to be handed in separately. If this is not so, then comment
+% the below 3 lines (between '\begin{abstractseparte}' and
+% 'end{abstractseparate}'), normally like a declaration ... needs some more
+% work, mind as environment abstracts creates a new page!
+% \begin{abstractseparate}
+%   \input{Abstract/abstract}
+% \end{abstractseparate}
+
+% Using the watermark package which is in StyleFiles/
+% and to remove DRAFT COPY ONLY appearing on the top of all pages comment out below line
+\watermark{DRAFT COPY ONLY}
+
+\maketitle
+%\makeglossaries
+
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\frontmatter % book mode only
+\pagenumbering{roman}
+\include{Dedication/dedication}
+\include{Acknowledgement/acknowledgement}
+\include{Abstract/abstract}
+
+
+
+\tableofcontents
+\newpage
+\listoftables
+\newpage
+\listoffigures
+%\include{AcronymsPhD}
+
+%\include{phd-acronyms}
+
+\printglossary[type=acron, nonumberlist]
+\printglossary[type=abbrev, nonumberlist]
+\printglossary[type=symbol, nonumberlist]
+
+%\glsnogroupskipfalse
+%\printglossary[title={List of Acronyms},type=acronym,nonumberlist]
+%\printglossary[type=abbrev,nonumberlist]
+% the `index' style displays the symbol, an alternative might be the `tree'
+% type; one could also define a custom style
+%\printglossary[type=symbol,nonumberlist]
+
+%\include{acronymsPhD}
+%\printglossary
+
+%\printglossary[type=\acronymtype]
+%\printglossaries
+%\printglossary[type=\acronymtype] %,style=long]  % list of acronyms
+%\printglossary[type=symbol,style=symbunitlong]   % list of symbols
+%\printglossary[type=main]                     % main glossary
+%\printnoidxglossaries
+%\printnomenclature  %% Print the nomenclature
+%\addcontentsline{toc}{chapter}{Acronyms}
+
+\mainmatter % book mode only
+\include{Introduction/introduction}
+\include{LitReview/litreview}
+\include{Methodology/methodology}
+\include{Results/results}
+\include{Analysis/analysis}
+\include{Conclusions/conclusions}
+
+%\backmatter % book mode only, turns off chapter numbering
+
+\bibliographystyle{chicago}
+\renewcommand{\bibname}{References} % changes default name Bibliography to References
+\renewcommand{\bibfont}{\small}
+\begin{singlespace}
+%\setlength\bibitemsep{10pt}
+\setlength{\itemsep}{0pt}
+
+\bibliography{References/PhDBibliography}
+\end{singlespace}
+
+\appendix
+\include{Appendix1/appendix1}
+\include{Appendix2/appendix2}
+\include{Appendix3/appendix3}
+\include{Appendix4/appendix4}
+
+
+
+\end{document}
