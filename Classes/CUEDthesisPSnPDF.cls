@@ -5,7 +5,7 @@
 % Version 1.1 released 14/07/2010
 %-------------------------- identification ---------------------
 %\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{CUEDthesisPSnPDF}[2010/07/14 v1.1 CUED thesis class]
+\ProvidesClass{Classes/CUEDthesisPSnPDF}[2010/07/14 v1.1 CUED thesis class]
 %-------------------------- initial code -----------------------
 \newif\ifCU@bookmode
 \CU@bookmodetrue
@@ -153,8 +153,8 @@
 %\setlength{\evensidemargin}{1.96cm}
 %\setlength{\oddsidemargin}{-0.54cm}
 \setlength{\topmargin}{1mm}
-%\setlength{\headheight}{1.36cm}
-\setlength{\headheight}{0cm} %GG chained line above to remove header region
+\setlength{\headheight}{1cm}
+%\setlength{\headheight}{0cm} %SS GG chained line above to remove header region
 \setlength{\headsep}{1.00cm}
 %\setlength{\headsep}{0.5cm}  %GG changed line above
 \setlength{\textheight}{20.84cm}
@@ -169,16 +169,16 @@
 \renewcommand{\sectionmark}[1]{}
 \fancyhf{}
 \fancyhead[RO]{\bfseries\rightmark}
-\fancyhead[LE]{\bfseries\leftmark}
+%\fancyhead[LE]{\bfseries\leftmark}
 \fancyfoot[C]{\thepage}
 %\renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\headrulewidth}{0pt}  %added by GG to remove line on top of page. Line above puts that line back in.
-\renewcommand{\footrulewidth}{0pt}
-\addtolength{\headheight}{0.5pt}
-\fancypagestyle{plain}{
-  \fancyhead{}
-  \renewcommand{\headrulewidth}{0pt}
-}
+% \renewcommand{\footrulewidth}{0pt}
+% \addtolength{\headheight}{0.5pt}
+% \fancypagestyle{plain}{
+%  \fancyhead{}
+%  \renewcommand{\headrulewidth}{0pt}
+%}
 
 \newcommand{\submittedtext}{{A thesis submitted for the degree of}}
 %
